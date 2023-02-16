@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.ApiExceptionHandler.StudentNotFoundException;
 import com.example.demo.beans.Student;
 import com.example.demo.repositorys.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,15 @@ public class StudentService {
     }
 
 
+
     //    get specific student details
-    public Student getStudentByRollNo(int rollNo){
-        return stRepo.findById(rollNo).get();
+    public Student getStudentByRollNo(int rollNo) throws StudentNotFoundException{
+        if(! stRepo.findById(rollNo).isPresent()){
+            throw new StudentNotFoundException("student not found");
+        }else{
+            return stRepo.findById(rollNo).get();
+        }
+
     }
 }
 
