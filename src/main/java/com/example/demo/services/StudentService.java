@@ -19,8 +19,6 @@ public class StudentService {
         return stRepo.findAll();
     }
 
-
-
     //    get specific student details
     public Student getStudentByRollNo(int rollNo) throws StudentNotFoundException{
         if(! stRepo.findById(rollNo).isPresent()){
