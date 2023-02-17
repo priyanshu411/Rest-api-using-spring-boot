@@ -44,14 +44,10 @@ public class StudentService {
 //    update specific student
     public Student updateStudent(Student st,int rollNo) throws ResourceNotFoundException {
 
-        if(stRepo.findById(rollNo).isPresent()){
-            Student exSt=stRepo.findById(rollNo).get();
+            Student exSt=stRepo.findById(rollNo).get(); //get old data
             exSt.setStudentName(st.getStudentName());
             exSt.setCourse(st.getCourse());
             return stRepo.save(exSt);
-        }else {
-            throw new ResourceNotFoundException(rollNo,"Resource not found of Roll No :");
-        }
     }
 
     //delete specific student

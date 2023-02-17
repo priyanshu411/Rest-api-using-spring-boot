@@ -47,8 +47,8 @@ public class StudentController {
     public ResponseEntity<Student> updateStudent(@RequestBody Student st,@PathVariable int rollNo){
        try {
            return new ResponseEntity(service.updateStudent(st,rollNo), HttpStatus.OK);
-       }catch(ResourceNotFoundException e){
-           return new ResponseEntity(e.getMessage()+""+e.getId(),HttpStatus.NOT_FOUND);
+       }catch(Exception e){
+           return new ResponseEntity(e.getMessage(),HttpStatus.CONFLICT);
         }
 
     }
