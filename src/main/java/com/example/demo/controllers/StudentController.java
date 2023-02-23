@@ -33,7 +33,7 @@ public class StudentController {
         }
     }
 
-    @PostMapping("/addStudent")
+    @PostMapping(path = "/addStudent")
     public ResponseEntity<Student> addStudent(@RequestBody Student st){
         try{
             return new ResponseEntity(service.addStudent(st), HttpStatus.CREATED);
@@ -43,7 +43,7 @@ public class StudentController {
 
     }
 
-    @PutMapping("/updateStudent/{rollNo}")
+    @PutMapping(path = "/updateStudent/{rollNo}")
     public ResponseEntity<Student> updateStudent(@RequestBody Student st,@PathVariable int rollNo){
        try {
            return new ResponseEntity(service.updateStudent(st,rollNo), HttpStatus.OK);
@@ -52,7 +52,7 @@ public class StudentController {
         }
 
     }
-    @DeleteMapping("deleteStudent/{rollNo}")
+    @DeleteMapping(path = "deleteStudent/{rollNo}")
    public ResponseEntity<AddResponse> deleteStudent(@PathVariable int rollNo){
         try{
             return new ResponseEntity(service.deleteStudent(rollNo),HttpStatus.OK);
