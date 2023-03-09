@@ -74,7 +74,7 @@ public class AuditReport {
         this.currentData = currentData;
     }
 
-    public void setDateTime(Timestamp dateTime) {
+    public void setDateTime(Timestamp dateTime ) {
         this.dateTime = dateTime;
     }
 
@@ -84,5 +84,17 @@ public class AuditReport {
 
     public void setOperation(String operation) {
         this.operation = operation;
+    }
+
+    @Override
+    public String toString() {
+        return "AuditReport{" +
+                "rollNo=" + rollNo +
+                ", oldData='" + oldData + '\'' +
+                ", currentData='" + currentData + '\'' +
+                ", dateTime=" + dateTime +
+                ", operation='" + operation + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
